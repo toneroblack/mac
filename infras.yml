@@ -188,3 +188,82 @@ Resources:
         Properties:
             RouteTableId: !Ref PrivateRouteTable2
             SubnetId: !Ref PrivateSubnet2
+
+Outputs:
+    VPC:
+        Description: A reference to the created VPC
+        Value: !Ref VPC
+        Export:
+            Name: !Sub ${EnvironmentBuild}-VPCID
+
+    PublicRouteTable:
+        Description: A reference for the PublicRoute Table
+        Value: !Ref PublicRouteTable
+        Export:
+            Name: !Sub ${EnvironmentBuild}-PRT
+
+    DefaultPublicRoute:
+        Description: A reference for the Default Public Route
+        Value: !Ref DefaultPublicRoute
+        Export:
+            Name: !Sub ${EnvironmentBuild}-DPR
+
+    PublicSubnet1RouteTableAssociation:
+        Description: A reference for the Public Subnet 1 Association
+        Value: !Ref PublicSubnet1RouteTableAssociation
+        Export:
+            Name: !Sub ${EnvironmentBuild}-PS1A
+
+    PublicSubnet2RouteTableAssociation:
+        Description: A reference for the Public Subnet 2 Association
+        Value: !Ref PublicSubnet2RouteTableAssociation
+        Export:
+            Name: !Sub ${EnvironmentBuild}-PS2A
+
+    PublicSubnets:
+        Description: A list for the public Subnets
+        Value: !Join [ ",", [ !Ref PublicSubnet1, !Ref PublicSubnet2 ]]
+        Export:
+          Name: !Sub ${EnvironmentBuild}-PUB-NETS
+
+    PrivateRouteTable1:
+        Description: A reference for the private route table
+        Value: !Ref PrivateRouteTable1
+        Export:
+            Name: !Sub ${EnvironmentBuild}-Private-RTx 
+
+    PrivateRouteTable2:
+        Description: A reference for the private route table
+        Value: !Ref PrivateRouteTable2
+        Export:
+            Name: !Sub ${EnvironmentBuild}-Private-RT
+
+    DefaultPrivateRoute1:
+        Description: A reference for the default private route 1
+        Value: !Ref DefaultPrivateRoute1
+        Export:
+            Name: !Sub ${EnvironmentBuild}-DefaultPrivateRoute1
+
+    DefaultPrivateRoute2:
+        Description: A reference for the default private route 2
+        Value: !Ref DefaultPrivateRoute2
+        Export:
+            Name: !Sub ${EnvironmentBuild}-Default-private-route2
+
+    PrivateSubnet1RouteTableAssociation:
+        Description: A reference for the private subnet1 Association
+        Value: !Ref PrivateSubnet1RouteTableAssociation
+        Export:
+            Name: !Sub ${EnvironmentBuild}-Private-Subnet1-Association
+
+    PrivateSubnet2RouteTableAssociation:
+        Description: A reference for the private subnet2 Association
+        Value: !Ref PrivateSubnet2RouteTableAssociation
+        Export:
+            Name: !Sub ${EnvironmentBuild}-Private-Subnet2-Association
+
+    PrivateSubnets:
+        Description: A reference for the private Subnets
+        Value: !Join [ ',', [ !Ref PrivateSubnet1, !Ref PrivateSubnet2 ]]
+        Export:
+            Name: !Sub ${EnvironmentBuild}-Private-Subnets
